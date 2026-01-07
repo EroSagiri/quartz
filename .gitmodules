@@ -1,3 +1,4 @@
 [submodule "mineral"]
 	path = mineral
 	url = https://github.com/EroSagiri/mineral.git
+	branch = main
