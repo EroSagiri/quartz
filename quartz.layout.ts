@@ -5,11 +5,23 @@ import * as Component from "./quartz/components"
 export const sharedPageComponents: SharedLayout = {
   head: Component.Head(),
   header: [],
-  afterBody: [],
+  afterBody: [
+    Component.Comments({
+      provider: 'giscus',
+      options: {
+        repo: 'EroSagiri/mineral',
+        repoId: 'R_kgDOQ1JZ_Q',
+        category: 'Announcements',
+        categoryId: 'DIC_kwDOQ1JZ_c4C0uUN',
+        lang: 'zh-CN',
+        mapping: 'pathname',
+        
+      }
+    }),
+  ],
   footer: Component.Footer({
     links: {
-      GitHub: "https://github.com/jackyzha0/quartz",
-      "Discord Community": "https://discord.gg/cRFFHYye7t",
+      GitHub: "https://github.com/EroSagiri/quartz",
     },
   }),
 }
