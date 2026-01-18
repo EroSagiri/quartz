@@ -8,14 +8,14 @@ import * as Plugin from "./quartz/plugins"
  */
 const config: QuartzConfig = {
   configuration: {
-    pageTitle: "叹息六月",
+    pageTitle: "六月笔记",
     pageTitleSuffix: "",
     enableSPA: true,
     enablePopovers: true,
     analytics: null,
     locale: "zh-CN",
     baseUrl: "sighjune.com",
-    ignorePatterns: ["private", "templates", ".obsidian"],
+    ignorePatterns: ["private", "templates", ".obsidian", "模板"],
     defaultDateType: "modified",
     theme: {
       fontOrigin: "googleFonts",
