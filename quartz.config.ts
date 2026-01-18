@@ -23,7 +23,7 @@ const config: QuartzConfig = {
       typography: {
         header: "Noto Sans SC",
         body: "Noto Serif SC",
-        code: "Noto Sans Mono CJK SC, Roboto Mono",
+        code: "Noto Sans Mono",
       },
       colors: {
         lightMode: {
