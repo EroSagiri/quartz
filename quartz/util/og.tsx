@@ -5,7 +5,7 @@ import { QuartzPluginData } from "../plugins/vfile"
 import { JSXInternal } from "preact/src/jsx"
 import { FontSpecification, getFontSpecificationName, ThemeKey } from "./theme"
 import path from "path"
-import { QUARTZ } from "./path"
+import { joinSegments, QUARTZ } from "./path"
 import { formatDate, getDate } from "../components/Date"
 import readingTime from "reading-time"
 import { i18n } from "../i18n"
@@ -25,8 +25,12 @@ export async function getSatoriFonts(headerFont: FontSpecification, bodyFont: Fo
     typeof bodyFont === "string" ? defaultBodyWeight : (bodyFont.weights ?? defaultBodyWeight)
   ) as FontWeight[]
 
-  const headerFontName = typeof headerFont === "string" ? headerFont : headerFont.name
-  const bodyFontName = typeof bodyFont === "string" ? bodyFont : bodyFont.name
+  // const headerFontName = typeof headerFont === "string" ? headerFont : headerFont.name
+  // const bodyFontName = typeof bodyFont === "string" ? bodyFont : bodyFont.name
+
+  // 强势使用 Noto Serif SC 和 Noto Sans SC，其他中文字体可能会有缺字问题 By Kai June 2026-01-18
+  const headerFontName = "Noto Serif SC"
+  const bodyFontName = "Noto Sans SC"
 
   // Fetch fonts for all weights and convert to satori format in one go
   const headerFontPromises = headerWeights.map(async (weight) => {
@@ -60,6 +64,13 @@ export async function getSatoriFonts(headerFont: FontSpecification, bodyFont: Fo
   const fonts: SatoriOptions["fonts"] = [
     ...headerFonts.filter((font): font is NonNullable<typeof font> => font !== null),
     ...bodyFonts.filter((font): font is NonNullable<typeof font> => font !== null),
+    // {
+    //   name: "NotoSansSCMedium",
+    //   data: await fs.readFile(path.resolve(joinSegments(QUARTZ, "static", "fonts", "NotoSansSC-Medium.ttf"))),
+    //   weight: 400,
+    //   style: "normal" as const,
+    //   lang: "zh-CN"
+    // },
   ]
 
   return fonts
